@@ -2,26 +2,31 @@
 // tokenizer
 const natural = require('natural');
 const tokenizer = new natural.WordTokenizer();
-console.log(tokenizer.tokenize('Machine learning is awesome!'));
+// console.log(tokenizer.tokenize('Machine learning is awesome!'));
 
 // string distance
-console.log(natural.HammingDistance('AI', 'ai', false));
-console.log(natural.HammingDistance('AI', 'ai', true));
-console.log(natural.HammingDistance('AI', 'artificial intelligence', true));
+//console.log(natural.HammingDistance('AI', 'ai', false));
+//console.log(natural.HammingDistance('AI', 'ai', true));
+//console.log(natural.HammingDistance('AI', 'artificial intelligence', true));
+
 
 // stemmer
 natural.PorterStemmer.attach();
 const sentence = 'A process for removing the commoner morphological and inflexional endings from words in English.';
-console.log(sentence.tokenizeAndStem());
+//console.log(sentence.tokenizeAndStem());
 
 // https://www.npmjs.com/package/node-rake
 // rake
+const documentss = ['A statistical way of comparing two (or more) techniques, typically an incumbent against a new rival. A/B testing aims to determine not only which technique performs better but also to understand whether the difference is statistically significant. A/B testing usually considers only two techniques using one measurement, but it can be applied to any finite number of techniques and measures. The fraction of predictions that a classification model got right. In multi-class classification, accuracy is defined as follows: In binary classification, accuracy has the following definition: See true positive and true negative.', `In reinforcement learning, the mechanism by which the agent transitions between states of the environment. The agent chooses the action by using a policy.`,`A function (for example, ReLU or sigmoid) that takes in the weighted sum of all of the inputs from the previous layer and then generates and passes an output value (typically nonlinear) to the next layer.`]
+
 const rake = require('node-rake')
 const myStopwords = ['for', 'the', 'a', 'stands', 'test', 'man', 'woman'];
 const opts = {stopwords: myStopwords};
-console.log(opts)
-const keyWords = rake.generate("LDA stands for Latent Dirichlet Allocation", opts);
+// console.log(opts)
+const keyWords = rake.generate(documentss[0], opts);
 // it'll output: [ 'Latent Dirichlet Allocation', 'LDA' ]
+console.log('rake')
+
 console.log(keyWords)
 
 
