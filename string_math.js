@@ -1,14 +1,12 @@
+console.log("code: conditional comparing if a substring is in string");
 let example = "Example String!";
 let ourSubstring = "Example";
-
-// conditional comparing if a substring is
 if (example.includes(ourSubstring)) {
-    console.log("The word Example is in the string.");
-} else {
-    console.log("The word Example is not in the string.");
-}
+    console.log("The substring:" + ourSubstring + " is in " + example+ "\n");
+} else {}
 
-var arr = [
+console.log("code: uses filter to apply function that searches which words are in the sentence");
+var words = [
     'techniques',
     'classification',
     'two',
@@ -19,21 +17,39 @@ var arr = [
     'classification model',
     'multi-class classification'
 ];
-var documents = ['A statistical way of comparing two (or more) techniques, typically an incumbent against a new rival. A/B testing aims to determine not only which technique performs better but also to understand whether the difference is statistically significant. A/B testing usually considers only two techniques using one measurement, but it can be applied to any finite number of techniques and measures. The fraction of predictions that a classification model got right. In multi-class classification, accuracy is defined as follows: In binary classification, accuracy has the following definition: See true positive and true negative.', `In reinforcement learning, the mechanism by which the agent transitions between states of the environment. The agent chooses the action by using a policy.`,`A function (for example, ReLU or sigmoid) that takes in the weighted sum of all of the inputs from the previous layer and then generates and passes an output value (typically nonlinear) to the next layer.`]
+var documents = ['A statistical way of comparing two (or more) techniques, ' +
+                    'typically an incumbent against a new rival. ' +
+                    'A/B testing aims to determine not only which technique' +
+                    ' performs better but also to understand whether the difference ' +
+                    'is statistically significant. A/B testing usually ' +
+                    'considers only two techniques using one measurement, ' +
+                    'but it can be applied to any finite number of techniques ' +
+                    'and measures. The fraction of predictions that a' +
+                    'classification model got right. In multi-class classification, ' +
+                    'accuracy is defined as follows: In binary classification, ' +
+                    'accuracy has the following definition: See true positive ' +
+                    'and true negative.', `In reinforcement learning, the mechanism by
+                     which the agent transitions between states of the environment. 
+                     The agent chooses the action by using a policy.`,`A function 
+                     (for example, ReLU or sigmoid) that takes in the weighted sum of 
+                     all of the inputs from the previous layer and then generates 
+                     and passes an output value (typically nonlinear) to the next layer.`]
 var _document = documents[0].replace(/([.?!])\s*(?=[A-Z])/g, "$1|").split("|")
+var sentence = _document[0]
+let filtered_words = []
 
-
-function checker(value) {
-    console.log(value);
-    console.log(_document[0]);
-    console.log(_document[0].includes(value));
+function contains_words(value) {
+    if (sentence.includes(value)) {
+        filtered_words.push(value)
+    } else {}
+    return filtered_words
 }
+words.filter(contains_words);
+console.log(sentence);
+console.log(words);
+console.log(filtered_words+"\n");
 
-arr = arr.filter(checker);
-console.log(arr);
-
-// order in order of sentence
-// map words to sentence
+console.log("code: array of dictionaries");
 var dict = {
     keywordphrase: "Chris",
     order: 1,
@@ -41,40 +57,25 @@ var dict = {
 };
 var thesaurus = [dict,dict]
 console.log(thesaurus)
+console.log("\n")
 
-var myStringArray = ["Hello","World"];
-var arrayLength = myStringArray.length;
+console.log("code: for loops that accesses each element")
+let colors = ['red', 'green', 'blue'];
+var arrayLength = colors.length;
 for (var i = 0; i < arrayLength; i++) {
-    console.log(myStringArray[i]);
+    console.log(colors[i]);
     //Do something
 }
-
-const array = ["one", "two", "three"]
-array.forEach(function (item, index) {
-    console.log(item, index);
-});
-
-let colors = ['red', 'green', 'blue'];
 for (const color of colors){
     console.log(color);
 }
+console.log("\n")
 
-Array.prototype.foo = "foo!";
-var array2 = ['a', 'b', 'c'];
+console.log("code: for loop that accesses each element and index")
+colors.forEach(function (item, index) {
+    console.log(item, index);
+});
 
-for (var i in array2) {
-    console.log(array2[i]);
-}
-
-var obj = {
-    "a": 1,
-    "b": 2,
-    "c": 3
-};
-
-for (var prop in obj) {
-    if (obj.hasOwnProperty(prop)) {
-        // or if (Object.prototype.hasOwnProperty.call(obj,prop)) for safety...
-        console.log("prop: " + prop + " value: " + obj[prop])
-    }
+for (var i in colors) {
+    console.log(colors[i]);
 }
